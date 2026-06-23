@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+import os
 # Page setting ko wide mode me karein taaki dashboard khula-khula dikhe
 st.set_page_config(page_title="Car Sales Dashboard", layout="wide")
 
@@ -14,8 +14,9 @@ st.markdown("""
     .card { background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 25px; }
     </style>
 """, unsafe_allow_html=True)
-
-df = pd.read_csv('car_clean_dataset')
+base_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(base_dir, 'car_clean_dataset')
+df = pd.read_csv(file_path)
 
 st.markdown('<h1>🚗 Modern Car Sales Dashboard</h1>', unsafe_allow_html=True)
 
