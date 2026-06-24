@@ -33,34 +33,32 @@ group_car_sort = group_car.sort_values(ascending=False).head(30)
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.markdown('<div class="card"><h3>⚙️ Transmission Distribution</h3>', unsafe_allow_html=True)
+    st.markdown('## Transmission Distribution')
     fig1, ax1 = plt.subplots(figsize=(5, 4))
     colors = sns.color_palette('pastel')[0:len(group_transmission)]
     ax1.pie(group_transmission, labels=group_transmission.index, autopct='%1.1f%%', startangle=90, colors=colors, wedgeprops={'edgecolor': 'white'})
     ax1.axis('equal')
     st.pyplot(fig1)
-    st.markdown('</div>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<div class="card"><h3>⛽ Fuel Type Distribution</h3>', unsafe_allow_html=True)
+    st.markdown('## ⛽ Fuel Type Distribution')
     fig2, ax2 = plt.subplots(figsize=(5, 4))
     colors = sns.color_palette('muted')[0:len(group_Fuel_Type)]
     ax2.pie(group_Fuel_Type, labels=group_Fuel_Type.index, autopct='%1.1f%%', startangle=90, colors=colors, wedgeprops={'edgecolor': 'white'})
     ax2.axis('equal')
     st.pyplot(fig2)
-    st.markdown('</div>', unsafe_allow_html=True)
 
 with col3:
-    st.markdown('<div class="card"><h3>👤 Owner Type Distribution</h3>', unsafe_allow_html=True)
+    st.markdown('##👤 Owner Type Distribution')
     fig3, ax3 = plt.subplots(figsize=(5, 4))
     colors = sns.color_palette('deep')[0:len(group_Owner_Type)]
     ax3.pie(group_Owner_Type, labels=group_Owner_Type.index, autopct='%1.1f%%', startangle=90, colors=colors, wedgeprops={'edgecolor': 'white'})
     ax3.axis('equal')
     st.pyplot(fig3)
-    st.markdown('</div>', unsafe_allow_html=True)
+    
 
 # ==================== ROW 2: MAIN SALES CORNER (BAR CHART) ====================
-st.markdown('<div class="card"><h3>🏆 Top 30 Highest Sales Cars</h3>', unsafe_allow_html=True)
+st.markdown(' ## 🏆 Top 30 Highest Sales Cars')
 
 # Is chart ko bada aur khula banane ke liye alag se space di gayi hai
 fig4, ax4 = plt.subplots(figsize=(15, 5))
@@ -101,37 +99,35 @@ col1,col2,col3,col4=st.columns(4)
 #top seliing car cites
 cites_count=df[df['Name'].isin(group_car_sort.index)]['Location'].value_counts()
 with col1:
-    st.markdown('<div class="card"><h3> $ top 30 selling  cars price range in Lakh',unsafe_allow_html=True)
+    st.markdown('## $ top 30 selling  cars price range in Lakh')
     fig5,ax5=plt.subplots(figsize=(5,4))
     colors=sns.color_palette('muted')[0]
     ax5.hist(price_lis,bins=60,color=colors ,edgecolor='white')
     ax5.set_xlabel('distrbution of prize range in Lakh')
     ax5.set_ylabel('number of car sales')
     st.pyplot(fig5)
-    st.markdown('</div>',unsafe_allow_html=True)
+
 with col2:
-    st.markdown('<div class="card"><h3> $ top 30 selling cars mileage range',unsafe_allow_html=True)
+    st.markdown('## $ top 30 selling cars mileage range')
     fig6,ax6=plt.subplots(figsize=(5,4))
     colors = sns.color_palette('pastel')[0]
     ax6.hist(mileage_range,bins=60,color=colors ,edgecolor='white')
     ax6.set_xlabel('distrbution of mileage in km/L')
     ax6.set_ylabel('number of car sales')
     st.pyplot(fig6)
-    st.markdown('</div>',unsafe_allow_html=True)
+  
 with col3:
-    st.markdown('<div class="card"><h3> $ top 30 selling cars power range',unsafe_allow_html=True)
+    st.markdown('## $ top 30 selling cars power range')
     fig7,ax7=plt.subplots(figsize=(5,4))
     colors = sns.color_palette('Blues_r')[0]
     ax7.hist(car_power,bins=60,color=colors ,edgecolor='white')
     ax7.set_xlabel('distrbution of power in CC')
     ax7.set_ylabel('number of car sales')
     st.pyplot(fig7)
-    st.markdown('</div>',unsafe_allow_html=True)
 with col4:
-    st.markdown('<div class="card"><h3>top cites</h3>', unsafe_allow_html=True)
+    st.markdown('## top cites')
     fig8, ax8 = plt.subplots(figsize=(5, 4))
     colors = sns.color_palette('pastel')[0:len(cites_count)]
     ax8.pie(cites_count, labels=cites_count.index, autopct='%1.1f%%', startangle=90, colors=colors, wedgeprops={'edgecolor': 'white'})
     ax8.axis('equal')
     st.pyplot(fig8)
-    st.markdown('</div>', unsafe_allow_html=True)    
