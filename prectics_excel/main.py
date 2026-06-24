@@ -49,7 +49,7 @@ with col2:
     st.pyplot(fig2)
 
 with col3:
-    st.markdown('##👤 Owner Type Distribution')
+    st.markdown('## 👤 Owner Type Distribution')
     fig3, ax3 = plt.subplots(figsize=(5, 4))
     colors = sns.color_palette('deep')[0:len(group_Owner_Type)]
     ax3.pie(group_Owner_Type, labels=group_Owner_Type.index, autopct='%1.1f%%', startangle=90, colors=colors, wedgeprops={'edgecolor': 'white'})
@@ -117,7 +117,7 @@ with col2:
     st.pyplot(fig6)
   
 with col3:
-    st.markdown('## $ top 30 selling cars power range')
+    st.markdown('## ⚡  top 30 selling cars power range')
     fig7,ax7=plt.subplots(figsize=(5,4))
     colors = sns.color_palette('Blues_r')[0]
     ax7.hist(car_power,bins=60,color=colors ,edgecolor='white')
